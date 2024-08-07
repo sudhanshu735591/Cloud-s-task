@@ -1,0 +1,15 @@
+.childBox{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.text{
+    color: blueviolet;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.border{
+    border: 1px solid;
+}
