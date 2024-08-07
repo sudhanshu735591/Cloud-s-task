@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Header from "../header";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SideBar from "./SideBar";
 
 function MovieList(){
     const [data, setData] = useState();
@@ -58,63 +59,7 @@ function MovieList(){
         <div>
             <Header/>
             <div className="moviesContainer">
-                <div className="filterBox">
-                    <h4>Filter by Rating</h4>
-
-                    <div className="checkbox">
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <input type="checkbox" id="1" value={1} onChange={handleCheckBox}/>
-                            <p className="star">
-                            ★☆☆☆☆
-                            </p>
-                        </div>
-
-
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <input type="checkbox" value={2} id="2" onChange={handleCheckBox}/>
-                            <p className="star">
-                            ★★☆☆☆
-                            </p>
-                        </div>
-
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <input type="checkbox" id="3" value={3} onChange={handleCheckBox}/>
-                            <p className="star">
-                            ★★★☆☆
-                            </p>
-                        </div>
-
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <input type="checkbox" id="4" value={4} onChange={handleCheckBox}/>
-                            <p className="star">
-                            ★★★★☆
-                            </p>
-                        </div>
-
-                        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <input type="checkbox" id="5" value={5} onChange={handleCheckBox}/>
-                            <p className="star">
-                            ★★★★★
-                            </p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4>Sort By Year</h4>
-                        <div>
-                            <div className="radioBox" onChange={handleAscending}>
-                                <input type="radio" name="sortOrder" id="ascending" />
-                                <label htmlFor="ascending">Ascending</label>
-                            </div>
-
-                            <div className="radioBox" onChange={handleDescending}>
-                                <input type="radio" name="sortOrder" id="descending" />
-                                <label htmlFor="descending">Descending</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <SideBar handleCheckBox={handleCheckBox} handleDescending={handleDescending} handleAscending={handleAscending}/>
                 <div className="cardBox">
                     <div className="cardChildBox">
                     {data?.map((val) => {

@@ -10,7 +10,13 @@ function Header(){
     }
 
     function home(){
-        // navigate("/movielist");
+        const loginstatus = localStorage.getItem("loginStatus");
+       if(loginstatus=="true"){
+        navigate("/homepage");
+       }
+       else{
+        alert("Please login !!")
+       }
     }
     return(
         <div className="header">

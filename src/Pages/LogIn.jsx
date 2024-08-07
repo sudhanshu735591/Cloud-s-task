@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 function LogIn(){
     const navigate = useNavigate();
+    localStorage.setItem("loginStatus", false);
+    const [loginStatus, setLLoginStatus] = useState(false);
     const [data, setData] = useState({
         email:"",
         password:""
@@ -18,10 +20,14 @@ function LogIn(){
         const response = await fetchData?.json();
         const checkCredential = response?.data?.some((val)=>val.email===data.email);
         if(checkCredential){
-            navigate("/movielist");
+            localStorage.setItem("loginStatus", true);
+
+            navigate("/homepage");
         }
         else{
             alert("Email id does not exist")
+            localStorage.setItem("loginStatus", false);
+
         }
     }
 
