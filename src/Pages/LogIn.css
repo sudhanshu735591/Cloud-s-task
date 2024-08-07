@@ -1,0 +1,25 @@
+.loginBox{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.child{
+    border: 1px solid;
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+}
+
+.inuutBox{
+    width: 50%;
+    height: 30px;
+    outline: none;
+}
+
+.loginbutton{
+    width: 150px;
+    padding: 10px;
+    cursor: pointer;
+}
+

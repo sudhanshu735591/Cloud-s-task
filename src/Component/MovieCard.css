@@ -1,0 +1,13 @@
+.movie-image {
+    width: 100%; 
+    cursor: pointer;
+    object-fit: cover;
+    height: fit-content;
+}
+
+.imageContainer {
+    border: 1px solid;
+    padding: 20px;
+    text-align: center;
+    max-width: 270px;
+}

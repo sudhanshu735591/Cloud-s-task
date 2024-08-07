@@ -1,16 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import LoginPage from './loginpage';
-import MovieList from './MovieList';
-import SingleCard from './SingleCard';
+import MovieList from './Component/MovieList.jsx';
+import LogIn from './Pages/LogIn.jsx';
+import MovieDetails from './Component/MovieDetails.jsx';
 
 function App() {
   return (
    <Routes>
-      <Route path='/' element={<LoginPage/>}/>
+      <Route path='/' element={<LogIn/>}/>
       <Route path='/movielist' element={<MovieList/>}/>
-      <Route path='/singleCard' element={<SingleCard/>}/>
+      <Route path='/moviedetails/:id' element={<MovieDetails/>}/>
    </Routes>
   );
 }
