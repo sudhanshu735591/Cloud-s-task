@@ -4,6 +4,8 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import { useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function MovieList(){
     const [data, setData] = useState();
@@ -11,12 +13,15 @@ function MovieList(){
     const [value, setValue] = useState();
     const [selectedData, setSelectedData] = useState();
     const [array, setArray] = useState([]);
+    const [loader , setLoader] = useState(true);
     const navigate = useNavigate();
     const fetchApiData = async()=>{
+        setLoader(true);
         let myData = await fetch("http://localhost:3000/movies");
         let response = await myData?.json();
         setData(response);
         setDuplicateData(response);
+        setLoader(false);
     }
 
     useEffect(()=>{
@@ -60,6 +65,12 @@ function MovieList(){
             <Header/>
             <div className="moviesContainer">
                 <SideBar handleCheckBox={handleCheckBox} handleDescending={handleDescending} handleAscending={handleAscending}/>
+                {loader?<>
+                    <div style={{margin:"auto"}}>
+                    <CircularProgress />
+                    <p>Please wait...</p>
+                    </div>
+                </>:
                 <div className="cardBox">
                     <div className="cardChildBox">
                     {data?.map((val) => {
@@ -82,7 +93,7 @@ function MovieList(){
                         })}
 
                     </div>
-                </div>
+                </div>}
 
             </div>
         </div>
